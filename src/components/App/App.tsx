@@ -4,7 +4,7 @@ import WithContext from "../WithContext"
 import { createContext, useState } from 'react'
 import InputGroup from '../InputGroup';
 
-export const AppRadio = createContext<{ setMethod: (value: string) => void }>({ setMethod: () => { } });
+export const ForwardMethod = createContext({} as { setMethod: React.Dispatch<React.SetStateAction<string>> })
 
 const App = () => {
   const propToDrill: string = "This is the prop from PropDrilling"
@@ -13,9 +13,9 @@ const App = () => {
   const [method, setMethod] = useState("PropDrilling")
   return (
     <>
-      <AppRadio.Provider value={{ setMethod }}>
+      <ForwardMethod.Provider value={{ setMethod }}>
         <InputGroup />
-      </AppRadio.Provider>
+      </ForwardMethod.Provider>
       <div className="container">
         {method === "PropDrilling" && <PropDrilling propToDrill={propToDrill} maxLevel={maxLevel} />}
         {method === "WithContext" && <WithContext propToConsumer={propToConsumer} maxLevel={maxLevel} />}

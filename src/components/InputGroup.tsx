@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { AppRadio } from './App/App'
+import { ForwardMethod } from './App/App'
 
 const InputGroup = () => {
-  const { setMethod } = useContext(AppRadio);
+  const { setMethod } = useContext(ForwardMethod);
   return (
     <form className='inputGroup'>
       <div>
